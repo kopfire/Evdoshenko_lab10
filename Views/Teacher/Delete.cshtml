@@ -1,0 +1,16 @@
+﻿@model Teacher
+@{
+    ViewBag.Title = "Удаление преподавателя";
+}
+<h2>Район № @Model.Id</h2>
+<form asp-action="DeleteConfirmed" asp-controller="teacher">
+    <div class="form-group">
+        @Html.HiddenFor(m => m.Id)
+        <p class="control-label">ФИО - @Model.Name</p>
+        <p class="control-label">Предмет - @Model.Lesson</p>
+        <p class="control-label">Кафедра - @Model.Faculty</p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Удалить" class="btn btn-outline-dark" />
+    </div>
+</form>

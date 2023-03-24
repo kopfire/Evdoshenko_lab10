@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Achievement>
+@{
+    ViewBag.Title = "Достижения";
+}
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+    <tr>
+        <th>Дата</th>
+        <th>Тип</th>
+        <th>Описание</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Date.ToString("dd/MM/yyyy")</td>
+            <td>@item.Type</td>
+            <td>@item.Text</td>
+        </tr>
+    }
+    </tbody>
+</table>

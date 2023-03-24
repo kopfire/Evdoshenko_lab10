@@ -1,0 +1,19 @@
+﻿@model Teacher
+@{
+    ViewBag.Title = "Изменение преподавателя";
+}
+<h2>Район № @Model.Id</h2>
+<form asp-action="edit" asp-controller="teacher">
+    <div class="form-group">
+        @Html.HiddenFor(m => m.Id)
+        <label asp-for="Name" class="control-label">ФИО</label>
+        <input type="text" asp-for="Name" class="form-control" value=@Model.Name />
+        <label asp-for="Lesson" class="control-label">Предмет</label>
+        <input type="text" asp-for="Lesson" class="form-control" value=@Model.Lesson />
+        <label asp-for="Faculty" class="control-label">Кафедра</label>
+        <input type="text" asp-for="Faculty" class="form-control" value=@Model.Faculty />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-outline-dark" />
+    </div>
+</form>

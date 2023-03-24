@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Progress>
+@{
+    ViewBag.Title = "Успеваемость";
+}
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Семестр</th>
+            <th>Предмет</th>
+            <th>Оценка</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Semester</td>
+                <td>@item.Discipline</td>
+                <td>@item.Grade</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

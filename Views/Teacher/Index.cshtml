@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Teacher>
+@{
+    ViewBag.Title = "Преподаватели";
+}
+<a asp-action="Create" class="btn btn-outline-dark">Добавить преподавателя</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ФИО</td>
+            <td>Предмет</td>
+            <td>Кафедра</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Lesson</td>
+                <td>@item.Faculty</td>
+                <td class="text-end">
+                    <a asp-action="Edit" asp-route-id=@item.Id class="btn btn-outline-dark">Изменить</a>
+                    <a asp-action="Delete" asp-route-id=@item.Id class="btn btn-outline-dark">Удалить</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dt-bordered').dataTable({
+
+            columnDefs: [{
+                orderable: false,
+                className: 'select-checkbox',
+                targets: 0
+            }],
+            select: {
+                style: 'multi',
+                selector: 'td:first-child'
+            }
+        });
+    });
+</script>
